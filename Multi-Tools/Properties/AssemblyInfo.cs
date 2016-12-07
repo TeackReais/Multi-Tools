@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Multi-Tools")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyCompany("QQ1036673441")]
 [assembly: AssemblyProduct("Multi-Tools")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2016")]
 [assembly: AssemblyTrademark("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("b4a0e6fb-5ef9-49ca-b298-fd5e81c97645")]
+[assembly: Guid("29c2402c-29ac-46ac-9a45-a4bcbc280fa8")]
 
 // 程序集的版本信息由下列四个值组成: 
 //
