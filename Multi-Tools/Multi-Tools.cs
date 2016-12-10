@@ -25,6 +25,7 @@ namespace MultiTools
         public static void Main(string[] args)
         {
             OtherAboutMultiTools.Features Feature = new OtherAboutMultiTools.Features();
+            Feature.WriteSomething(true, "Log.log", "程序访问时间：" + OtherFeatureAboutXml.Time(true, true));
             XmlSettingsMain.GetXml(true, Application.CompanyName);
             string TypeMain;
             while (true)
@@ -431,11 +432,22 @@ namespace MultiTools
                 }
                 return;
             }
+            public void WriteSomething(bool Use, string Path, string Value)
+            {
+                if (Use == true)
+                {
+                    StreamWriter Writer = new StreamWriter(Path, true);
+                    Writer.WriteLine(Value);
+                    Writer.Close();
+                }
+                else
+                {
+                    return;
+                }
+            }
         }
     }
-
-        
-        class GetValueFromSystem
+    class GetValueFromSystem
         {
             private string _PathOfDocument = Application.StartupPath;
             public string PathOfDocument

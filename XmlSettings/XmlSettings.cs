@@ -100,7 +100,7 @@ namespace XmlSettings
                     Console.WriteLine("按任意键重启文件");
                     Console.ReadKey();
                     Application.Restart();
-                    Application.Exit();
+                    Environment.Exit(0);
                 }
                 finally
                 {
@@ -766,6 +766,7 @@ namespace XmlSettings
         {
             while (true)
             {
+                Console.Clear();
                 if (Use == true)
                 {
                     Console.WriteLine("欢迎使用系统密码设置.请输入序号.");
@@ -841,6 +842,7 @@ namespace XmlSettings
             {
                 while(true)
                 {
+                    Console.Clear();
                     Console.WriteLine("欢迎使用系统12小时计时设置.请输入序号.");
                     Console.WriteLine("1.使用");
                     Console.WriteLine("2.不使用");
