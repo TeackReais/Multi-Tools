@@ -24,13 +24,12 @@ namespace MultiTools
         public static void Main(string[] args)
         {
             OtherAboutMultiTools.Features Feature = new OtherAboutMultiTools.Features();
-            OtherAboutMultiTools.Features.UseSettings.CreateXmlFile();
-            OtherAboutMultiTools.Features.UseSettings.SetTheBackColor(true);
+            OtherAboutMultiTools.ShowOfMultiTools.XmlSettingsShow.GetXml(true);
             string TypeMain;
             while (true)
             {
                 Console.Clear();
-                OtherAboutMultiTools.ShowOfMultiTools.FirstLevel.ShowMain(true, false, "kaixu");
+                OtherAboutMultiTools.ShowOfMultiTools.FirstLevel.ShowMain(true);
                 Console.Write("输入:");
                 TypeMain = Console.ReadLine();
                 if (TypeMain.StartsWith("1"))
@@ -70,11 +69,6 @@ namespace MultiTools
                 }
             }
         }
-        struct NeedValue
-        {
-            public const bool Yes = true;
-            public const bool No = false;
-        }
     }
     sealed class OtherAboutMultiTools
     {
@@ -82,12 +76,11 @@ namespace MultiTools
         {
             public class FirstLevel
             {
-                public static void ShowMain(bool Use, bool UsePassword, string TruePassword)
+                public static void ShowMain(bool Use)
                 {
                     if (Use == true)
                     {
                         GetValueFromSystem GetValue = new GetValueFromSystem();
-                        Password(UsePassword, TruePassword);
                         Console.WriteLine("系统时间为:" + Time(true, true));
                         Console.WriteLine("当前目录为:" + GetValue.PathOfDocument);
                         Console.WriteLine("软件版本为:" + Application.ProductVersion);
@@ -154,6 +147,186 @@ namespace MultiTools
             public class ThirdLevel
             {
 
+            }
+            public class XmlSettingsShow
+            {
+                public static void GetXml(bool Use)
+                {
+                    if (Use == true)
+                    {
+                        try
+                        {
+                            StartSetColor(true, Features.UseSettings.GetXmlString("Settings.xml", "Settings", "UseColor"));
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("欢迎第一次使用本程序.");
+                            Console.WriteLine("欢迎使用设置.");
+                            Console.ReadKey();
+                            Features.UseSettings.CreateXmlFile();
+                            Console.ReadKey();
+                            Application.Restart();
+                        }
+                        finally
+                        {
+                            Password(Features.UseSettings.GetXmlTrueOrFalse("Settings.xml", "Settings", "UsePassword"), "Kaixu");
+                        }
+                        return;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                public static void StartSetColor(bool Use, string TheGetColorValue)
+                {
+                    if (Use == true)
+                    {
+                        switch (TheGetColorValue)
+                        {
+                            case "Black":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Black;
+                                    break;
+                                }
+                            case "Blue":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Blue;
+                                    break;
+                                }
+                            case "Cyan":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    break;
+                                }
+                            case "DarkBlue":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                                    break;
+                                }
+                            case "DarkCyan":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.DarkCyan;
+                                    break;
+                                }
+                            case "DarkGray":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.DarkGray;
+                                    break;
+                                }
+                            case "DarkGreen":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                                    break;
+                                }
+                            case "DarkMagenta":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                                    break;
+                                }
+                            case "DarkRed":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.DarkRed;
+                                    break;
+                                }
+                            case "DarkYellow":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.DarkYellow;
+                                    break;
+                                }
+                            case "Gray":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Gray;
+                                    break;
+                                }
+                            case "Green":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Green;
+                                    break;
+                                }
+                            case "Magenta":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Magenta;
+                                    break;
+                                }
+                            case "Red":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Red;
+                                    break;
+                                }
+                            case "White":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.White;
+                                    break;
+                                }
+                            case "Yellow":
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Yellow;
+                                    break;
+                                }
+                        }
+                        Console.Clear();
+                        return;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                public static string UsePassword(bool Use)
+                {
+                    while (true)
+                    {
+                        if (Use == true)
+                        {
+                            Console.WriteLine("欢迎使用系统密码设置.请输入序号.");
+                            Console.WriteLine("1.使用");
+                            Console.WriteLine("2.不使用");
+                            Console.Write("输入:");
+                            string Type = Console.ReadLine();
+                            if (Type == "1")
+                            {
+                                Console.WriteLine("设置已保存.");
+                                Console.ReadKey();
+                                return "true";
+                            }
+                            else if (Type == "2")
+                            {
+                                Console.WriteLine("设置已保存.");
+                                Console.ReadKey();
+                                return "false";
+                            }
+                            else
+                            {
+                                Console.WriteLine("请输入1或2.");
+                                Console.ReadKey();
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+                public static string PasswordString(bool Use)
+                {
+                    if (Use == true)
+                    {
+
+                        Console.WriteLine("欢迎使用系统密码数据设置.");
+                        Console.WriteLine("请设置访问密码");
+                        Console.Write("输入:");
+                        string Type = Console.ReadLine();
+                        Console.WriteLine("设置已保存.");
+                        Console.ReadKey();
+                        return Type;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
             }
             public static void Password(bool Use, string True_PassWord)
             {
@@ -297,36 +470,45 @@ namespace MultiTools
                 public static void CreateXmlFile()
                 {
                     XmlDocument XmlDocumentSet = new XmlDocument();
+                    string Color_String = SetTheBackColor(true);
+                    Console.Clear();
+                    string UsePassword_String = ShowOfMultiTools.XmlSettingsShow.UsePassword(true);
+                    Console.Clear();
+                    //Xml声明
                     XmlNode Declaration = XmlDocumentSet.CreateXmlDeclaration("1.0", "UTF-8", "");
                     XmlDocumentSet.AppendChild(Declaration);
+                    //一级元素
                     XmlElement ElementSettings = XmlDocumentSet.CreateElement("Settings");
                     XmlDocumentSet.AppendChild(ElementSettings);
-                    XmlElement UsePassword = XmlDocumentSet.CreateElement("UsePassword");
-                    UsePassword.InnerText = "true";
-                    ElementSettings.AppendChild(UsePassword);
+                    //二级元素
                     XmlElement UseColor = XmlDocumentSet.CreateElement("UseColor");
-                    XmlAttribute WhichColor = XmlDocumentSet.CreateAttribute("WhichColor");
-                    WhichColor.InnerText = "black";
-                    UseColor.InnerText = "true";
-                    UseColor.Attributes.Append(WhichColor);
+                    XmlElement UsePassword = XmlDocumentSet.CreateElement("UsePassword");
+                    XmlElement PasswordString = XmlDocumentSet.CreateElement("PasswordString");
+                    UsePassword.InnerText = UsePassword_String;
+                    UseColor.InnerText = Color_String;
+                    ElementSettings.AppendChild(UsePassword);
                     ElementSettings.AppendChild(UseColor);
+                    ElementSettings.AppendChild(PasswordString);
+                    //                    XmlAttribute WhichColor = XmlDocumentSet.CreateAttribute("WhichColor");
+                    //                    WhichColor.InnerText = "black";
+                    //                    UseColor.Attributes.Append(WhichColor);
                     try
                     {
-                        XmlDocumentSet.Save("Settings.Xml");
+                        XmlDocumentSet.Save("Settings.xml");
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
-                        Console.WriteLine(e.Message);
                     }
                 }
                 public static string SetTheBackColor(bool Use)
                 {
                     if (Use == true)
                     {
-                        while(true)
+                        while (true)
                         {
                             ConsoleColor Now = Console.BackgroundColor;
                             Console.Clear();
+                            Console.WriteLine("欢迎使用系统颜色设置.");
                             Console.WriteLine("请设置控制台背景颜色。请输入序号。");
                             Console.WriteLine("1.黑色");
                             Console.WriteLine("2.蓝色");
@@ -392,7 +574,7 @@ namespace MultiTools
                                             {
                                                 Console.WriteLine("设置已保存");
                                                 Console.ReadKey();
-                                                return "Black";
+                                                return "Blue";
                                             }
                                             else if (TypeCase == "2")
                                             {
@@ -420,7 +602,7 @@ namespace MultiTools
                                             {
                                                 Console.WriteLine("设置已保存");
                                                 Console.ReadKey();
-                                                return "Black";
+                                                return "Cyan";
                                             }
                                             else if (TypeCase == "2")
                                             {
@@ -448,7 +630,7 @@ namespace MultiTools
                                             {
                                                 Console.WriteLine("设置已保存");
                                                 Console.ReadKey();
-                                                return "Black";
+                                                return "DarkBlue";
                                             }
                                             else if (TypeCase == "2")
                                             {
@@ -476,7 +658,7 @@ namespace MultiTools
                                             {
                                                 Console.WriteLine("设置已保存");
                                                 Console.ReadKey();
-                                                return "Black";
+                                                return "DarkCyan";
                                             }
                                             else if (TypeCase == "2")
                                             {
@@ -504,7 +686,7 @@ namespace MultiTools
                                             {
                                                 Console.WriteLine("设置已保存");
                                                 Console.ReadKey();
-                                                return "Black";
+                                                return "DarkGray";
                                             }
                                             else if (TypeCase == "2")
                                             {
@@ -532,7 +714,7 @@ namespace MultiTools
                                             {
                                                 Console.WriteLine("设置已保存");
                                                 Console.ReadKey();
-                                                return "Black";
+                                                return "DarkGreen";
                                             }
                                             else if (TypeCase == "2")
                                             {
@@ -560,7 +742,7 @@ namespace MultiTools
                                             {
                                                 Console.WriteLine("设置已保存");
                                                 Console.ReadKey();
-                                                return "Black";
+                                                return "DarkMagenta";
                                             }
                                             else if (TypeCase == "2")
                                             {
@@ -588,7 +770,7 @@ namespace MultiTools
                                             {
                                                 Console.WriteLine("设置已保存");
                                                 Console.ReadKey();
-                                                return "Black";
+                                                return "DarkRed";
                                             }
                                             else if (TypeCase == "2")
                                             {
@@ -616,7 +798,7 @@ namespace MultiTools
                                             {
                                                 Console.WriteLine("设置已保存");
                                                 Console.ReadKey();
-                                                return "Black";
+                                                return "DarkYellow";
                                             }
                                             else if (TypeCase == "2")
                                             {
@@ -644,7 +826,7 @@ namespace MultiTools
                                             {
                                                 Console.WriteLine("设置已保存");
                                                 Console.ReadKey();
-                                                return "Black";
+                                                return "Gray";
                                             }
                                             else if (TypeCase == "2")
                                             {
@@ -672,7 +854,7 @@ namespace MultiTools
                                             {
                                                 Console.WriteLine("设置已保存");
                                                 Console.ReadKey();
-                                                return "Black";
+                                                return "Green";
                                             }
                                             else if (TypeCase == "2")
                                             {
@@ -700,7 +882,7 @@ namespace MultiTools
                                             {
                                                 Console.WriteLine("设置已保存");
                                                 Console.ReadKey();
-                                                return "Black";
+                                                return "Magenta";
                                             }
                                             else if (TypeCase == "2")
                                             {
@@ -728,7 +910,7 @@ namespace MultiTools
                                             {
                                                 Console.WriteLine("设置已保存");
                                                 Console.ReadKey();
-                                                return "Black";
+                                                return "Red";
                                             }
                                             else if (TypeCase == "2")
                                             {
@@ -756,7 +938,7 @@ namespace MultiTools
                                             {
                                                 Console.WriteLine("设置已保存");
                                                 Console.ReadKey();
-                                                return "Black";
+                                                return "White";
                                             }
                                             else if (TypeCase == "2")
                                             {
@@ -784,7 +966,7 @@ namespace MultiTools
                                             {
                                                 Console.WriteLine("设置已保存");
                                                 Console.ReadKey();
-                                                return "Black";
+                                                return "Yellow";
                                             }
                                             else if (TypeCase == "2")
                                             {
@@ -809,6 +991,26 @@ namespace MultiTools
                         return null;
                     }
                 }
+                public static bool GetXmlTrueOrFalse(string Path, string Element, string Node)
+                {
+                    XDocument LoadXml = XDocument.Load(Path);
+                    string Value = LoadXml.Element(Element).Element(Node).Value;
+                    if (Value == "true")
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                public static string GetXmlString(string Path, string Element, string Node)
+                {
+                    XDocument LoadXml = XDocument.Load(Path);
+                    string Value = LoadXml.Element(Element).Element(Node).Value;
+                    return Value;
+                }
+
             }
             public class Math
             {
@@ -1050,6 +1252,9 @@ namespace MultiTools
                 return;
             }
         }
+    }
+
+        
         class GetValueFromSystem
         {
             private string _PathOfDocument = Application.StartupPath;
@@ -1061,5 +1266,5 @@ namespace MultiTools
                 }
             }
         }
-    }
+    
 }
