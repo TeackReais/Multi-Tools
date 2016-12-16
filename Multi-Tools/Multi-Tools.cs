@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using System.Net.Mail;
+using System.Configuration;
 using System.Xml;
 using System.Xml.Linq;
 using XmlSettings;
@@ -25,7 +27,7 @@ namespace MultiTools
         public static void Main(string[] args)
         {
             OtherAboutMultiTools.Features Feature = new OtherAboutMultiTools.Features();
-            Feature.WriteSomething(true, "Log.log", "程序访问时间：" + OtherFeatureAboutXml.Time(true, true));
+            Feature.WriteSomething(true, "TimeOfUsing.log", "程序访问时间：" + OtherFeatureAboutXml.Time(true, true));
             XmlSettingsMain.GetXml(true, Application.CompanyName);
             string TypeMain;
             while (true)
@@ -443,6 +445,52 @@ namespace MultiTools
                 else
                 {
                     return;
+                }
+            }
+            public void SenseOfTechnology(bool Use, string FileName)
+            {
+                Console.WriteLine("科技感功能将在10秒后开始。");
+                Console.WriteLine("系统将在开始后在目录下创建文件。");
+                Console.WriteLine("请手动关闭");
+                int NowNum = 10;
+                int Now = 1;
+                while (true)
+                {
+                    if (Now < 11)
+                    {
+                        Console.WriteLine(NowNum);
+                        Thread.Sleep(1000);
+                        Now++;
+                        NowNum--;
+                        continue;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                Random Ran = new Random();
+                Features Feature = new Features();
+                int i;
+                while (true)
+                {
+                    switch (Ran.Next(2))
+                    {
+                        case 0:
+                            {
+                                i = 0;
+                                Console.Write(i);
+                                Feature.WriteSomething(true, FileName, "0");
+                                break;
+                            }
+                        case 1:
+                            {
+                                i = 1;
+                                Console.Write(i);
+                                Feature.WriteSomething(true, FileName, "1");
+                                break;
+                            }
+                    }
                 }
             }
         }
