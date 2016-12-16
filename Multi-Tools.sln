@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multi-Tools", "Multi-Tools\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlSettings", "XmlSettings\XmlSettings.csproj", "{B539DCBD-7248-438F-B1B0-2225E8C14D3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Show", "Show\Show.csproj", "{F42E6B80-3C7E-4F1C-B5A8-898C0904EFBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B539DCBD-7248-438F-B1B0-2225E8C14D3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B539DCBD-7248-438F-B1B0-2225E8C14D3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B539DCBD-7248-438F-B1B0-2225E8C14D3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F42E6B80-3C7E-4F1C-B5A8-898C0904EFBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F42E6B80-3C7E-4F1C-B5A8-898C0904EFBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F42E6B80-3C7E-4F1C-B5A8-898C0904EFBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F42E6B80-3C7E-4F1C-B5A8-898C0904EFBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
