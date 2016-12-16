@@ -77,10 +77,6 @@ namespace MultiTools
     }
     sealed class OtherAboutMultiTools
     {
-        public class ShowOfMultiTools
-        {
-          
-        }
         public class Features
         {
             public class Math
