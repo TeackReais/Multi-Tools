@@ -995,8 +995,9 @@ namespace XmlSettings
                 TimeOfDay_String = "0" + TimeOfDay_String;
             }
             string NowMonthAndDay = TimeOfMinute + "/" + TimeOfDay;
-            string[] DateMonthAndDay = new string[10];
-            DateMonthAndDay = { "01/01","01/26",};
+            string[] DateMonthAndDay = new string[20];
+            DateMonthAndDay[0] = "01/01";
+            DateMonthAndDay[1] = "01/26";
             return ReturnString;
         }
     }
