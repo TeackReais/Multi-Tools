@@ -45,9 +45,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XmlSettings\XmlSettings.csproj">
+    <ProjectReference Include="..\Features\Features.csproj">
+      <Project>{a2b50b50-80b1-4cef-aa60-15e24ef1bfb0}</Project>
+      <Name>Features</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlSettings\DocumentSettings.csproj">
       <Project>{b539dcbd-7248-438f-b1b0-2225e8c14d3c}</Project>
-      <Name>XmlSettings</Name>
+      <Name>DocumentSettings</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

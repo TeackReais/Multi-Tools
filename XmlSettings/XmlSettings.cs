@@ -970,5 +970,34 @@ namespace XmlSettings
                 return;
             }
         }
+        public static string GetDateFestival()
+        {
+            string ReturnString;
+            DateTime SystemTime = DateTime.Now;
+            int TimeOfSecond = SystemTime.Second;
+            int TimeOfMinute = SystemTime.Minute;
+            int TimeOfHour = SystemTime.Hour;
+            int TimeOfDay = SystemTime.Day;
+            int TimeOfMonth = SystemTime.Month;
+            int TimeOfYear = SystemTime.Year;
+            string TimeOfYear_String = TimeOfYear.ToString();
+            string TimeOfMonth_String = TimeOfMonth.ToString();
+            string TimeOfDay_String = TimeOfDay.ToString();
+            string TimeOfHour_String = TimeOfHour.ToString();
+            string TimeOfMinute_String = TimeOfMinute.ToString();
+            string TimeOfSecond_String = TimeOfSecond.ToString();
+            if (TimeOfMonth < 10)
+            {
+                TimeOfMonth_String = "0" + TimeOfMonth_String;
+            }
+            if (TimeOfDay < 10)
+            {
+                TimeOfDay_String = "0" + TimeOfDay_String;
+            }
+            string NowMonthAndDay = TimeOfMinute + "/" + TimeOfDay;
+            string[] DateMonthAndDay = new string[10];
+            DateMonthAndDay = { "01/01","01/26",};
+            return ReturnString;
+        }
     }
 }

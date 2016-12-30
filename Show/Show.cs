@@ -21,7 +21,7 @@ using System.Collections;
 
 namespace Show
 {
-    public class ShowSomething
+    public class ShowingSomething
     {
         public class FirstLevel
         {
@@ -97,13 +97,14 @@ namespace Show
 
         }
     }
-    public class Features
-    {
+    public class Math_FeaturesShowing
+    { 
         public static void ShowIntersection(bool Use)
         {
             if (Use == true)
             {
-                Features Feature = new Features();
+                Features.Features Feature = new Features.Features();
+                Features.MathFeatures MathFeature = new Features.MathFeatures();
                 Console.WriteLine("Y=AX^2+BX+C");
                 Console.WriteLine("请输入A,B,C,系统将会无视非数字和小数。");
                 Console.WriteLine("数据不超过1.79769313486232E+307,不小于-1.79769313486232E+307");
@@ -125,7 +126,7 @@ namespace Show
                 double A = Feature.DelAnyWord(true, false, A_String);
                 double B = Feature.DelAnyWord(true, false, B_String);
                 double C = Feature.DelAnyWord(true, false, C_String);
-                Features.Math.Quadratic_Function Quadratic_Function = new Features.Math.Quadratic_Function();
+                Features.MathFeatures.Quadratic_Function Quadratic_Function = new Features.MathFeatures.Quadratic_Function();
                 double[] JiaoDian = Quadratic_Function.Get_Intersection(A, B, C);
                 Console.WriteLine("Y={A}X^2+{B}X+{C}");
                 Console.WriteLine("与X轴交点为({0},{1})", JiaoDian[0], JiaoDian[1]);
@@ -138,6 +139,13 @@ namespace Show
             {
                 return;
             }
+        }
+    }
+    public class FeaturesShowing
+    {
+        public static void ShowingTimeAndSaveUseTime(bool Use)
+        {
+
         }
     }
 }
