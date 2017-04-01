@@ -54,11 +54,51 @@ namespace Show
             {
                 while (true)
                 {
+                    Console.Clear();
                     Console.WriteLine("请输入指定字符使用指定功能");
                     Console.WriteLine("1.在指定秒数后关机");
                     Console.WriteLine("2.在指定秒数后重启");
                     Console.WriteLine("3.在指定时间执行CMD命令");
                     Console.WriteLine("4.打开CMD窗口");
+                    Console.WriteLine("5.强行关闭进程");
+                    Console.WriteLine("6.返回上一级菜单");
+                    Console.Write("输入：");
+                    string SystemControl = Console.ReadLine();
+                    if (SystemControl.StartsWith("1") == true)
+                    {
+                        continue;
+                    }
+                    else if (SystemControl.StartsWith("2") == true)
+                    {
+                        continue;
+                    }
+                    else if (SystemControl.StartsWith("3") == true)
+                    {
+                        continue;
+                    }
+                    else if (SystemControl.StartsWith("4") == true)
+                    {
+                        Process.Start("CMD");
+                        Console.ReadKey();
+                        continue;
+                    }
+                    else if (SystemControl.StartsWith("5") == true)
+                    {
+                        Process ClassProcess = new Process();
+                        Console.Write(Process.GetProcesses());
+                        Console.ReadKey();
+                        continue;
+                    }
+                    else if (SystemControl.StartsWith("6") == true)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("输入错误，请重新输入");
+                        Console.ReadKey();
+                        continue;
+                    }
                 }
             }
             public static void WriterInfo(bool Use)
@@ -144,6 +184,13 @@ namespace Show
     public class FeaturesShowing
     {
         public static void ShowingTimeAndSaveUseTime(bool Use)
+        {
+
+        }
+    }
+    public class Linshi
+    {
+        public static void EXAM985(bool Use)
         {
 
         }

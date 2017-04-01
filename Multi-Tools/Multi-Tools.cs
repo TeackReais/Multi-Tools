@@ -29,22 +29,21 @@ namespace MultiTools
     {
         public static void Main(string[] args)
         {
-            Random NewRan = new Random();
-            Console.Write(NewRan.Next());
-            Console.ReadKey();
-            Features.Features Feature = new Features.Features();
+            Features.Features Feature = new Features.Features();      
             Feature.WriteSomething(true, "TimeOfUsing.log", "程序访问时间：" + OtherFeatureAboutXml.Time(true, true));
             XmlSettingsMain.GetXml(true, Application.CompanyName);
             string TypeMain; 
             while (true)
             {
                 Console.Clear();
+                Console.WriteLine("中考倒计时:" + Features.Features.GetFutureTimeToNow(true, 2017, 6, 12, 8, 30, 0)[0]);
                 ShowingSomething.FirstLevel.ShowMain(true);
                 Console.Write("输入:");
                 TypeMain = Console.ReadLine();
                 if (TypeMain.StartsWith("1"))
                 {
                     Console.Clear();
+                    ShowingSomething.SecondLevel.SystemControl(true);
                 }
                 else if (TypeMain.StartsWith("2"))
                 {
@@ -68,6 +67,7 @@ namespace MultiTools
                 }
                 else if (TypeMain.StartsWith("6"))
                 {
+                    
                     Console.Clear();
                     Environment.Exit(0);
                 }

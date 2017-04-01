@@ -199,6 +199,61 @@ namespace Features
                 }
             }
         }
+        /*    public static string GetDateFestival()
+            {
+                string ReturnString;
+                DateTime SystemTime = DateTime.Now;
+                int TimeOfSecond = SystemTime.Second;
+                int TimeOfMinute = SystemTime.Minute;
+                int TimeOfHour = SystemTime.Hour;
+                int TimeOfDay = SystemTime.Day;
+                int TimeOfMonth = SystemTime.Month;
+                int TimeOfYear = SystemTime.Year;
+                string TimeOfYear_String = TimeOfYear.ToString();
+                string TimeOfMonth_String = TimeOfMonth.ToString();
+                string TimeOfDay_String = TimeOfDay.ToString();
+                string TimeOfHour_String = TimeOfHour.ToString();
+                string TimeOfMinute_String = TimeOfMinute.ToString();
+                string TimeOfSecond_String = TimeOfSecond.ToString();
+                if (TimeOfMonth < 10)
+                {
+                    TimeOfMonth_String = "0" + TimeOfMonth_String;
+                }
+                if (TimeOfDay < 10)
+                {
+                    TimeOfDay_String = "0" + TimeOfDay_String;
+                }
+                string NowMonthAndDay = TimeOfMinute + "/" + TimeOfDay;
+                string[] DateMonthAndDay = new string[20];
+                DateMonthAndDay[0] = "01/01";
+                DateMonthAndDay[1] = "01/26";
+                DateMonthAndDay[2] = "";
+                return ReturnString;
+            }*/
+        public static double[] GetFutureTimeToNow(bool Use, double TimeYear, double TimeMonth, double TimeDay, double TimeHour, double TimeMinute, double TimeSecond)
+        {
+            double[] FutureTimeToNow = new double[6];
+            DateTime SystemTime = DateTime.Now;
+            double TimeOfSecond = SystemTime.Second;
+            double TimeOfMinute = SystemTime.Minute;
+            double TimeOfHour = SystemTime.Hour;
+            double TimeOfDay = SystemTime.Day;
+            double TimeOfMonth = SystemTime.Month;
+            double TimeOfYear = SystemTime.Year;
+            double FinallySecond_D = (TimeYear - TimeOfYear) * (3600 * 24 * 12 * 30) + (TimeMonth - TimeOfMonth) * (3600 * 24 * 30) + (TimeDay - TimeOfDay) * (3600 * 24) + (TimeHour - TimeOfHour) * 3600 + (TimeMinute - TimeOfMinute) * 60 + (TimeSecond - TimeOfSecond);
+            int FinallySecond = Convert.ToInt32(TimeOfSecond - TimeSecond);
+            FutureTimeToNow[0] = FinallySecond_D;
+            FutureTimeToNow[1] = FinallySecond / (30 * 60 * 60 * 24);
+            int Temp1 = FinallySecond % (30 * 60 * 60 * 24);
+            FutureTimeToNow[2] = Temp1 / (60 * 60 * 24);
+            int Temp2 = Temp1 % (60 * 60 * 24);
+            FutureTimeToNow[3] = Temp2 / (60 * 60);
+            int Temp3 = Temp2 % (60 * 60);
+            FutureTimeToNow[4] = Temp3 / (60);
+            int Temp4 = Temp3 % (60);
+            FutureTimeToNow[5] = Temp4;
+            return FutureTimeToNow;
+        }
     }
     public class MathFeatures
     {
@@ -216,7 +271,7 @@ namespace Features
                 ReturnNum[0] = C;
                 ReturnNum[1] = 0;
                 double TempNum1 = B * B - (4 * A * C);
-                double TempNum2 = System.Math.Sqrt(TempNum1);
+                double TempNum2 = Math.Sqrt(TempNum1);
                 double TheB = -1 * B;
                 double XZhouJiaoDian1 = (TheB + TempNum2) / 2 / A;
                 double XZhouJiaoDian2 = (TheB - TempNum2) / 2 / A;
