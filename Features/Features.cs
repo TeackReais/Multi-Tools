@@ -390,7 +390,7 @@ namespace Features
                 Console.Clear();
                 Console.WriteLine("The Number between 100 and 999");
                 Console.WriteLine("Type a Number");
-                Console.WriteLine("Type:");
+                Console.Write("Type:");
                 int GuessNum = Convert.ToInt32(Console.ReadLine());
                 if (GuessNum > NUM)
                 {
@@ -403,6 +403,7 @@ namespace Features
                 }
                 else if (GuessNum < NUM)
                 {
+                    GuessTime++;
                     Console.WriteLine("Too low");
                     Console.WriteLine("You have guessed " + GuessTime + "time(s)");
                     Console.WriteLine("Press any key to continue");
