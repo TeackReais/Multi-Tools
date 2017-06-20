@@ -119,11 +119,13 @@ namespace Show
                         string Choose = Console.ReadLine();
                         if (Choose.StartsWith("1"))
                         {
+                            Console.Clear();
                             Features.SimpleGame.GuessNumber();
                             continue;
                         }
                         else
                         {
+                            Console.Clear();
                             Console.WriteLine("输入错误，请重新输入");
                             Console.ReadKey();
                             continue;

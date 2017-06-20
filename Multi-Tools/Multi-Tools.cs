@@ -55,6 +55,7 @@ namespace MultiTools
                 }
                 else if (TypeMain.StartsWith("4"))
                 {
+                    Console.Clear();
                     ShowingSomething.SecondLevel.SimpleGame(true);
                     continue;
                 }
