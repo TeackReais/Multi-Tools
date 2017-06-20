@@ -116,6 +116,7 @@ namespace Show
                     while (true)
                     {
                         Console.WriteLine("1.猜数字游戏");
+                        Console.WriteLine("输入：");
                         string Choose = Console.ReadLine();
                         if (Choose.StartsWith("1"))
                         {

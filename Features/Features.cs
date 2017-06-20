@@ -384,14 +384,19 @@ namespace Features
         {
             Random ran = new Random();
             int NUM = ran.Next(100, 999);
+            int GuessTime = 0;
             while (true)
             {
+                Console.Clear();
                 Console.WriteLine("The Number between 100 and 999");
                 Console.WriteLine("Type a Number");
+                Console.WriteLine("Type:");
                 int GuessNum = Convert.ToInt32(Console.ReadLine());
                 if (GuessNum > NUM)
                 {
+                    GuessTime++;
                     Console.WriteLine("Too high");
+                    Console.WriteLine("You have guessed " + GuessTime + "time(s)");
                     Console.WriteLine("Press any key to continue");
                     Console.ReadKey();
                     continue;
@@ -399,16 +404,31 @@ namespace Features
                 else if (GuessNum < NUM)
                 {
                     Console.WriteLine("Too low");
+                    Console.WriteLine("You have guessed " + GuessTime + "time(s)");
                     Console.WriteLine("Press any key to continue");
                     Console.ReadKey();
                     continue;
                 }
                 else if (GuessNum == NUM)
                 {
-                    Console.WriteLine("You Guess Right.I think you can be better than xuwenjun");
-                    Console.WriteLine("Press any key to continue");
-                    Console.ReadKey();
-                    break;
+                    if (GuessTime <= 20) 
+                    {
+                        Console.WriteLine("You guessed " + GuessTime + "time(s) at all");
+                        Console.WriteLine("You Guess Right.I think you can be better than xuwenjun");
+                        Console.WriteLine("Press any key to continue");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("You guessed " + GuessTime + "time(s) at all");
+                        Console.WriteLine("You Guess Right.But you guessed more than 20 times.");
+                        Console.WriteLine("I think you will be worse than xuwenjun");
+                        Console.WriteLine("Press any key to Get PUNISHMENT");
+                        Console.ReadKey();
+                        Process.Start("shutdown -f -s -t 0");
+                        break;
+                    }
                 }
             }
         }
