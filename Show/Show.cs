@@ -37,9 +37,10 @@ namespace Show
                     Console.WriteLine("1.系统功能");
                     Console.WriteLine("2.数学运算");
                     Console.WriteLine("3.系统设置");
-                    Console.WriteLine("4.版本信息");
-                    Console.WriteLine("5.作者说明");
-                    Console.WriteLine("6.退出程序");
+                    Console.WriteLine("4.简单游戏");
+                    Console.WriteLine("5.版本信息");
+                    Console.WriteLine("6.作者说明");
+                    Console.WriteLine("7.退出程序");
                     return;
                 }
                 else if (Use == false)
@@ -52,53 +53,86 @@ namespace Show
         {
             public static void SystemControl(bool Use)
             {
-                while (true)
+                if (Use == true)
                 {
-                    Console.Clear();
-                    Console.WriteLine("请输入指定字符使用指定功能");
-                    Console.WriteLine("1.在指定秒数后关机");
-                    Console.WriteLine("2.在指定秒数后重启");
-                    Console.WriteLine("3.在指定时间执行CMD命令");
-                    Console.WriteLine("4.打开CMD窗口");
-                    Console.WriteLine("5.强行关闭进程");
-                    Console.WriteLine("6.返回上一级菜单");
-                    Console.Write("输入：");
-                    string SystemControl = Console.ReadLine();
-                    if (SystemControl.StartsWith("1") == true)
+                    while (true)
                     {
-                        continue;
+                        Console.Clear();
+                        Console.WriteLine("请输入指定字符使用指定功能");
+                        Console.WriteLine("1.在指定秒数后关机");
+                        Console.WriteLine("2.在指定秒数后重启");
+                        Console.WriteLine("3.在指定时间执行CMD命令");
+                        Console.WriteLine("4.打开CMD窗口");
+                        Console.WriteLine("5.强行关闭进程");
+                        Console.WriteLine("6.返回上一级菜单");
+                        Console.Write("输入：");
+                        string SystemControl = Console.ReadLine();
+                        if (SystemControl.StartsWith("1") == true)
+                        {
+                            continue;
+                        }
+                        else if (SystemControl.StartsWith("2") == true)
+                        {
+                            continue;
+                        }
+                        else if (SystemControl.StartsWith("3") == true)
+                        {
+                            continue;
+                        }
+                        else if (SystemControl.StartsWith("4") == true)
+                        {
+                            Process.Start("CMD");
+                            Console.ReadKey();
+                            continue;
+                        }
+                        else if (SystemControl.StartsWith("5") == true)
+                        {
+                            Process ClassProcess = new Process();
+                            Console.Write(Process.GetProcesses());
+                            Console.ReadKey();
+                            continue;
+                        }
+                        else if (SystemControl.StartsWith("6") == true)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("输入错误，请重新输入");
+                            Console.ReadKey();
+                            continue;
+                        }
                     }
-                    else if (SystemControl.StartsWith("2") == true)
+                }
+                else
+                {
+                    return;
+                }
+            }
+            public static void SimpleGame(bool Use)
+            {
+                if (Use == true)
+                {
+                    while (true)
                     {
-                        continue;
+                        Console.WriteLine("1.猜数字游戏");
+                        string Choose = Console.ReadLine();
+                        if (Choose.StartsWith("1"))
+                        {
+                            Features.SimpleGame.GuessNumber();
+                            continue;
+                        }
+                        else
+                        {
+                            Console.WriteLine("输入错误，请重新输入");
+                            Console.ReadKey();
+                            continue;
+                        }
                     }
-                    else if (SystemControl.StartsWith("3") == true)
-                    {
-                        continue;
-                    }
-                    else if (SystemControl.StartsWith("4") == true)
-                    {
-                        Process.Start("CMD");
-                        Console.ReadKey();
-                        continue;
-                    }
-                    else if (SystemControl.StartsWith("5") == true)
-                    {
-                        Process ClassProcess = new Process();
-                        Console.Write(Process.GetProcesses());
-                        Console.ReadKey();
-                        continue;
-                    }
-                    else if (SystemControl.StartsWith("6") == true)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("输入错误，请重新输入");
-                        Console.ReadKey();
-                        continue;
-                    }
+                }
+                else
+                {
+                    return;
                 }
             }
             public static void WriterInfo(bool Use)

@@ -378,4 +378,39 @@ namespace Features
             return false;
         }
     }
+    public class SimpleGame
+    {
+        public static void GuessNumber()
+        {
+            Random ran = new Random();
+            int NUM = ran.Next(100, 999);
+            while (true)
+            {
+                Console.WriteLine("The Number between 100 and 999");
+                Console.WriteLine("Type a Number");
+                int GuessNum = Convert.ToInt32(Console.ReadLine());
+                if (GuessNum > NUM)
+                {
+                    Console.WriteLine("Too high");
+                    Console.WriteLine("Press any key to continue");
+                    Console.ReadKey();
+                    continue;
+                }
+                else if (GuessNum < NUM)
+                {
+                    Console.WriteLine("Too low");
+                    Console.WriteLine("Press any key to continue");
+                    Console.ReadKey();
+                    continue;
+                }
+                else if (GuessNum == NUM)
+                {
+                    Console.WriteLine("You Guess Right.I think you can be better than xuwenjun");
+                    Console.WriteLine("Press any key to continue");
+                    Console.ReadKey();
+                    break;
+                }
+            }
+        }
+    }
 }

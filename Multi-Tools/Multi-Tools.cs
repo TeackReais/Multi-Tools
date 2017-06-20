@@ -55,17 +55,22 @@ namespace MultiTools
                 }
                 else if (TypeMain.StartsWith("4"))
                 {
-                    Console.Clear();
-                    ShowingSomething.SecondLevel.VersionInfo(true);
+                    ShowingSomething.SecondLevel.SimpleGame(true);
                     continue;
                 }
                 else if (TypeMain.StartsWith("5"))
                 {
                     Console.Clear();
-                    ShowingSomething.SecondLevel.WriterInfo(true);
+                    ShowingSomething.SecondLevel.VersionInfo(true);
                     continue;
                 }
                 else if (TypeMain.StartsWith("6"))
+                {
+                    Console.Clear();
+                    ShowingSomething.SecondLevel.WriterInfo(true);
+                    continue;
+                }
+                else if (TypeMain.StartsWith("7"))
                 {
                     
                     Console.Clear();
